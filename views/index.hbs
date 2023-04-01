@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link />
+    <title>Players</title>
+</head>
+<body>
+    Players page
+    <h1>Welcome {{{name}}}{{lastName}}</h1>
+    {{#if lastName}}
+        <h2>This will be displayed!!</h2>
+    {{/if}}
+
+    {{#unless address}}
+        <h3>WARNING: We can't find the address!</h3>
+    {{/unless}}
+
+    {{#if cities}}
+        <ul>
+            {{#each cities}}
+                <img src="{{image}}"/>
+                {{#if @first}}
+                    <li><b>{{this}}</b></li>
+                {{else if @last}}
+                    <li><i>{{this}}</i></li>
+                {{else}}
+                    <li>{{this}}</li>
+                {{/if}}            
+            {{/each}}
+        </ul>
+    {{/if}}
+
+    {{#each object}}
+        {{@key}}: {{this}}
+    {{/each}}
+
+    {{#with address}}
+        <p>{{street}}, {{number}}</p>
+    {{/with}}
+
+    <script src="/script.js"></script>
+
+
+</body>
+</html>
